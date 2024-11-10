@@ -34,4 +34,7 @@ const About = forwardRef<HTMLDivElement, AboutProp>(({scrollToContact}, ref) => 
   )
 }
 )
+
+// Set displayName property
+About.displayName = "About";
 export default About

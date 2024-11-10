@@ -3,7 +3,7 @@ import { MdDeveloperBoard, MdDevices } from "react-icons/md";
 import { SiXdadevelopers } from "react-icons/si";
 import { mulish } from "@/utils/fonts";
 
-const Services = forwardRef<HTMLDivElement,{}>((__, ref) => {
+const Services = forwardRef<HTMLDivElement>((__, ref) => {
     return (
       <div ref={ref} className="mt-10 lg:h-screen flex flex-col justify-center items-center gap-y-12">
           <h1 className={`${mulish} text-clamp-lg`}>Servic<span className="bg-[linear-gradient(to_right,_#fac37b,_transparent)]">es</span></h1>
@@ -49,4 +49,6 @@ const Services = forwardRef<HTMLDivElement,{}>((__, ref) => {
     )
   }) 
 
+
+Services.displayName = "Services";
 export default Services

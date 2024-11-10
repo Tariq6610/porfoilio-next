@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaWhatsappSquare, FaLinkedin, FaFacebookSquare } from "react-icons/fa";
 import Link from "next/link";
 
-const ContactMe = forwardRef<HTMLDivElement,{}>((__, ref) => {
+const ContactMe = forwardRef<HTMLDivElement>((__, ref) => {
   const form = useRef<HTMLFormElement>(null);
 
   const sendEmail = (e : FormEvent) => {
@@ -151,4 +151,6 @@ const ContactMe = forwardRef<HTMLDivElement,{}>((__, ref) => {
   );
 }) 
 
+// Set displayName property
+ContactMe.displayName = "ContactMe";
 export default ContactMe

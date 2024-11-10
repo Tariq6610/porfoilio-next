@@ -1,7 +1,7 @@
 import { forwardRef } from "react"
 import { mulish } from "@/utils/fonts"
 
-const Projects = forwardRef<HTMLDivElement,{}>((__, ref) => {
+const Projects = forwardRef<HTMLDivElement>((__, ref) => {
     return (
       <div
         ref={ref}
@@ -142,4 +142,6 @@ const Projects = forwardRef<HTMLDivElement,{}>((__, ref) => {
     );
   }) 
 
+  // Set displayName property
+  Projects.displayName = "Projects";
 export default Projects

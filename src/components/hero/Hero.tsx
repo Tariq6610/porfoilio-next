@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import { mulish } from "@/utils/fonts";
 import "@/app/app.css"
 
-const Hero = forwardRef<HTMLDivElement,{}>((__,ref) => {
+const Hero = forwardRef<HTMLDivElement>((__,ref) => {
   return (
     <div ref={ref} className=" flex relative w-screen justify-center items-center md:mt-40 flex-wrap gap-x-24 gap-y-9 ">
       <div className="w-96 px-4 md:p-0 order-2 sm:order-1 relative">
@@ -44,4 +44,6 @@ const Hero = forwardRef<HTMLDivElement,{}>((__,ref) => {
   );
 })
 
+// Set displayName property
+Hero.displayName = "Hero";
 export default Hero
