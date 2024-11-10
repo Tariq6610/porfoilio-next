@@ -1,0 +1,31 @@
+.paragraph ::before{
+    content: "";
+    background-color: black;
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    left: -2.75rem;
+    top: 0.8rem;
+}
+
+
+.skills ::before{
+  content: "";
+  background-color: black;
+  width: 30px;
+  height: 2px;
+  position: absolute;
+  left: -2.75rem;
+  top: 1.4rem;
+}
+
+.badge{
+  display: inline-block;
+  padding: 5px 11px;
+  background: -webkit-linear-gradient(to right, #fac37b, transparent);
+  background: -moz-linear-gradient(to right, #fac37b, transparent);
+  background: -o-linear-gradient(to right, #fac37b, transparent);
+  background: linear-gradient(to right, #fac37b, transparent);   
+  border-radius: 40px;
+  margin: 5px;
+}

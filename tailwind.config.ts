@@ -12,6 +12,15 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontSize: {
+        'clamp-lg': 'clamp(40px, 5vw + 1rem, 60px)', // Custom utility class
+      },
+      fontFamily: {
+        lucida: ['Lucida Sans', 'Lucida Sans Regular','Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif'],
+      },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(to right, #fac37b, transparent)',
+      },
     },
   },
   plugins: [],
