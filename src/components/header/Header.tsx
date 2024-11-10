@@ -29,7 +29,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(({
     return (
       <>
       <header ref={ref} >
-        <div className='flex z-30 fixed text-black top-0 w-screen bg-slate-200 justify-between px-4 md:px-28 py-4 '>
+        <div className='flex z-30 fixed top-0 w-screen bg-slate-200 justify-between px-4 md:px-28 py-4 '>
           <div className='flex justify-center items-center gap-3'>
             <h1 className='w-12 h-12 flex font-bold justify-center items-center rounded-full bg-black text-white'>T</h1>
             <h1 className="font-bold">M Tariq</h1>

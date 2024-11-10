@@ -8,10 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // colors: {
-      //   background: "var(--background)",
-      //   foreground: "var(--foreground)",
-      // },
+      colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+      },
       fontSize: {
         'clamp-lg': 'clamp(40px, 5vw + 1rem, 60px)', // Custom utility class
       },
