@@ -3,7 +3,6 @@ import emailjs from '@emailjs/browser';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaWhatsappSquare, FaLinkedin, FaFacebookSquare } from "react-icons/fa";
-import Link from "next/link";
 
 const ContactMe = forwardRef<HTMLDivElement>((__, ref) => {
   const form = useRef<HTMLFormElement>(null);

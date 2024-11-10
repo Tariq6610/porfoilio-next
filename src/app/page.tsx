@@ -7,7 +7,6 @@ import Header from "@/components/header/Header";
 import Hero from "@/components/hero/Hero";
 import Projects from "@/components/projects/Projects";
 import Services from "@/components/services/Services";
-import Image from "next/image";
 
 export default function Home() {
   const heroRef = useRef(null);
