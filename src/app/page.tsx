@@ -9,7 +9,7 @@ import Projects from "@/components/projects/Projects";
 import Services from "@/components/services/Services";
 
 export default function Home() {
-  const heroRef = useRef(null);
+  const heroRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef(null);
   const servicesRef = useRef(null);
   const projectsRef = useRef(null);
@@ -18,7 +18,11 @@ export default function Home() {
     // Scroll function
     const scrollToSection = (ref : RefObject<HTMLDivElement>) => {
       if (ref.current) {
-        ref.current.scrollIntoView({ behavior: 'smooth', block: "center" });
+        if(ref.current === heroRef.current){
+          ref.current.scrollIntoView({ behavior: 'smooth', block: "center" });
+        }else{
+          ref.current.scrollIntoView({ behavior: 'smooth', block: "start" });
+        }
       }
     };
 

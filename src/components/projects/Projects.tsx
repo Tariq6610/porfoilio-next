@@ -1,7 +1,39 @@
 import { forwardRef } from "react"
 import { mulish } from "@/utils/fonts"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useGSAP } from "@gsap/react"
+import { useRef } from "react"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Projects = forwardRef<HTMLDivElement>((__, ref) => {
+
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(()=>{
+      const tl = gsap.timeline(
+          {
+              scrollTrigger:{
+                  trigger: containerRef.current
+              }
+          }
+      )
+
+      tl.from(containerRef.current,{
+          opacity:0,
+          duration: 1,
+          delay: 0.5
+      })
+      if(containerRef.current)
+      tl.from(containerRef.current.children,{
+          y:-40,
+          stagger: 0.2,
+          duration: 1
+          
+      })
+  })
+
     return (
       <div
         ref={ref}
@@ -14,7 +46,7 @@ const Projects = forwardRef<HTMLDivElement>((__, ref) => {
           </span>
         </h1>
 
-        <div className="flex flex-wrap gap-10 justify-center items-center  border-solid ">
+        <div ref={containerRef} className="flex flex-wrap gap-10 justify-center items-center  border-solid ">
           <a href="https://food-panda-mini-hackaton-d2k5n54vi-tariq-syeds-projects.vercel.app/" target="_blank">
               <div className="card h-[490px] hover:bg-slate-200 rounded-sm  p-4  pb-10 w-72 ">
                 <div>

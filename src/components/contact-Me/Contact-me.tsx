@@ -1,15 +1,58 @@
-import { FormEvent, forwardRef, useRef } from "react"
+"use client"
+import { FormEvent, forwardRef, useRef, useState } from "react"
 import emailjs from '@emailjs/browser';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaWhatsappSquare, FaLinkedin, FaFacebookSquare } from "react-icons/fa";
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const ContactMe = forwardRef<HTMLDivElement>((__, ref) => {
   const form = useRef<HTMLFormElement>(null);
 
+  const TextContainerRef = useRef(null)
+  const formContainerRef = useRef(null)
+  const [loading, setLoading] = useState(false)
+  const socialsRef = useRef(null)
+
+  useGSAP(()=>{
+    const tl = gsap.timeline(
+      {
+        scrollTrigger: {
+          trigger: formContainerRef.current,
+          scroller: 'body',
+          start: "top center", 
+          end: "bottom center",
+        }
+      }
+    )
+    tl.from(formContainerRef.current,{
+      x: -30,
+      opacity: 0,
+      duration: 1.1,
+    },'a')
+
+    tl.from(TextContainerRef.current,{
+      opacity: 0,
+      x: 30,
+      duration: 0.8,
+    },"a")
+    
+    tl.from(socialsRef.current,{
+      opacity: 0,
+      x: 30,
+      duration: 0.8,
+    },'a')
+
+  })
+
   const sendEmail = (e : FormEvent) => {
     e.preventDefault();
-    if(form.current)
+    if(form.current){
+      setLoading(true)
     emailjs
       .sendForm(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!, process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!, form.current, {
         publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
@@ -17,45 +60,23 @@ const ContactMe = forwardRef<HTMLDivElement>((__, ref) => {
       .then(
         () => {
           toast.success('Email has sent Successfully!');
+          setLoading(false)
         },
         (error) => {
           toast.error('FAILED...', error.text);
-          console.log('FAILED...', error.text)
+          console.log('FAILED...', error.text);
+          setLoading(false);
         },
       );
+      }
   };
 
   return (
     <>
       <div
         ref={ref}
-        className="flex h-screen relative bg-gray-100 justify-center items-center overflow-x-hidden"
-      >
-        <div className="w-[300px] z-20 px-10 absolute right-0 top-20 lg:right-auto lg:top-auto md:right-auto lg:left-80  h-[300px] bg-gray-200 border-b-4  border-orange-500">
-          <h1 className="relative left-[-80px] flex top-14 text-3xl font-bold">
-            Contact{" "}
-            <span className="font-bold bg-[linear-gradient(to_right,_#fac37b,_transparent)]">
-              Me
-            </span>
-          </h1>
-          <div
-            style={{ fontFamily: "'Lucida Sans', sans-serif" }}
-            className="relative text-sm top-16 "
-          >
-            <div>
-              <p className="mb-4 ">
-                i will read all emails. Send me any message you want and i will
-                get back to you.
-              </p>
-              <p>
-                i need your <span className="font-bold">Name</span> and{" "}
-                <span className="font-bold">Email Address</span>, but you will
-                not receive anything other than your reply
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="w-[500px] p-20 absolute top-56 lg:top-auto lg:right-52 h-[600px] text-white bg-black mt-[100px]">
+        className="flex h-screen bg-gray-100 relative  justify-center items-center overflow-x-hidden">
+        <div ref={formContainerRef} className="max-w-[500px] md:p-20 sm:p-10 p-7 absolute top-56 lg:top-auto lg:right-52 h-[600px] text-white bg-black mt-[100px]">
           <div>
             <h1 className="mb-6 font-bold text-xl">send Me A Message</h1>
             <form ref={form} onSubmit={sendEmail}>
@@ -95,18 +116,46 @@ const ContactMe = forwardRef<HTMLDivElement>((__, ref) => {
                     required
                   />
                 </div>
+                {loading ? 
+                  <div
+                   className="px-4 py-3 font-bold bg-orange-500  rounded-md "
+                  >Sending..</div> :
                 <button
                   type="submit"
                   value="Send"
                   className="px-4 py-3 font-bold bg-orange-500  rounded-md "
                 >
                   Send Message
-                </button>
+                </button> 
+              }
               </div>
             </form>
           </div>
+          <div ref={TextContainerRef} className="max-w-[300px] text-black z-20 px-10 absolute lg:top-20 lg:-left-60  h-[300px] bg-gray-200 border-b-4  border-orange-500 md:-top-60 -top-72 right-0">
+          <h1 className="relative left-[-50px] sm:left-[-80px] flex top-14 text-3xl font-bold">
+            Contact{" "}
+            <span className="font-bold bg-[linear-gradient(to_right,_#fac37b,_transparent)]">
+              Me
+            </span>
+          </h1>
+          <div
+            style={{ fontFamily: "'Lucida Sans', sans-serif" }}
+            className="relative text-sm top-16 "
+          >
+            <div>
+              <p className="mb-4 ">
+                i will read all emails. Send me any message you want and i will
+                get back to you.
+              </p>
+              <p>
+                i need your <span className="font-bold">Name</span> and{" "}
+                <span className="font-bold">Email Address</span>, but you will
+                not receive anything other than your reply
+              </p>
+            </div>
+          </div>
         </div>
-        <div className=" hidden absolute z-40 lg:bottom-32 bottom-0 w-screen mt-2 lg:w-60 left-80 lg:flex items-end text-sm">
+        <div ref={socialsRef} className=" hidden absolute z-40 text-black w-screen mt-2 lg:w-60 bottom-20 -left-60 lg:flex items-end text-sm">
           <div className="w-2/4">
             <p>Does not send Emails</p>
             <p className="font-bold">Write me on my social network</p>
@@ -117,6 +166,8 @@ const ContactMe = forwardRef<HTMLDivElement>((__, ref) => {
             <a href="https://www.facebook.com/tariq.syed.393/" target="_blank"><button className="p-1 bg-black text-2xl"><FaFacebookSquare /></button></a>
           </div>
         </div>
+        </div>
+
       </div>
       <div>
         <div className="p-4 lg:hidden flex justify-center w-screen items-center flex-col gap-2 bg-gray-800 text-white text-sm">

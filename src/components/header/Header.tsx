@@ -2,6 +2,9 @@
 import { useState, forwardRef } from "react";
 import { BsMenuButtonWide } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 
 type HeaderProps = {
   scrollToHero: () => void,
@@ -25,18 +28,35 @@ const Header = forwardRef<HTMLElement, HeaderProps>(({
       console.log("ok");
       
     }
+
+    const logoRef = useRef(null)
+    const routsRef = useRef<HTMLUListElement>(null)
+  
+    useGSAP(()=>{
+      const tl = gsap.timeline()
+      tl.from(logoRef.current,{
+        y: -30,
+        opacity:0,
+      })
+      if(routsRef.current)
+      tl.from(routsRef.current.children,{
+        y: -40,
+        opacity: 0,
+        stagger: 0.2,
+      })
+    })
   
     return (
       <>
       <header ref={ref} >
         <div className='flex z-30 fixed top-0 w-screen bg-slate-200 justify-between px-4 md:px-28 py-4 '>
-          <div className='flex justify-center items-center gap-3'>
+          <div ref={logoRef} className='flex justify-center items-center gap-3'>
             <h1 className='w-12 h-12 flex font-bold justify-center items-center rounded-full bg-black text-white'>T</h1>
             <h1 className="font-bold">M Tariq</h1>
             <a href="https://github.com/Tariq6610" target="_blank"><div className="text-2xl"><FaGithub /></div></a>
             </div>
           <div className="flex items-center">
-            <ul className='font-bold lg:flex items-center gap-12 hidden '>
+            <ul ref={routsRef} className='font-bold lg:flex items-center gap-12 hidden '>
               <li className="cursor-pointer hover:bg-slate-300 p-2" onClick={scrollToHero}>Home</li>
               <li className="cursor-pointer hover:bg-slate-300 p-2" onClick={scrollToAbout}>About</li>
               <li className="cursor-pointer hover:bg-slate-300 p-2" onClick={scrollToServices}>Services</li>

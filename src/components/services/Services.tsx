@@ -2,13 +2,45 @@ import { forwardRef } from "react"
 import { MdDeveloperBoard, MdDevices } from "react-icons/md";
 import { SiXdadevelopers } from "react-icons/si";
 import { mulish } from "@/utils/fonts";
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useGSAP } from "@gsap/react"
+import { useRef } from "react"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Services = forwardRef<HTMLDivElement>((__, ref) => {
+
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(()=>{
+      const tl = gsap.timeline(
+          {
+              scrollTrigger:{
+                  trigger: containerRef.current
+              }
+          }
+      )
+
+      tl.from(containerRef.current,{
+          opacity:0,
+          duration: 1,
+          delay: 0.5
+      })
+      if(containerRef.current)
+      tl.from(containerRef.current.children,{
+          y:-30,
+          stagger: 0.1,
+          duration: 0.7
+          
+      })
+  })
+
     return (
       <div ref={ref} className="mt-10 lg:h-screen flex flex-col justify-center items-center gap-y-12">
           <h1 className={`${mulish} text-clamp-lg`}>Servic<span className="bg-[linear-gradient(to_right,_#fac37b,_transparent)]">es</span></h1>
   
-      <div className="flex  relative flex-wrap gap-10 justify-center items-center  border-solid ">
+      <div ref={containerRef} className="flex  relative flex-wrap gap-10 justify-center items-center  border-solid ">
           <div className="card h-[400px] z-10 relative border-4 border-black rounded-sm px-6  pt-24 pb-10 w-72 ">
               <div >
               <div className="text-black relative w-fit h-fit text-4xl mb-2">
