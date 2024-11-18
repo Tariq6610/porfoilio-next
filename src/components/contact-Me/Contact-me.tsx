@@ -16,6 +16,12 @@ const ContactMe = forwardRef<HTMLDivElement>((__, ref) => {
   const TextContainerRef = useRef(null)
   const formContainerRef = useRef(null)
   const [loading, setLoading] = useState(false)
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  })
   const socialsRef = useRef(null)
 
   useGSAP(()=>{
@@ -53,6 +59,12 @@ const ContactMe = forwardRef<HTMLDivElement>((__, ref) => {
     e.preventDefault();
     if(form.current){
       setLoading(true)
+      setUser({
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
+      })
     emailjs
       .sendForm(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!, process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!, form.current, {
         publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
@@ -83,6 +95,8 @@ const ContactMe = forwardRef<HTMLDivElement>((__, ref) => {
               <div className="flex  flex-wrap justify-between gap-y-5">
                 <div className="w-[48%]  rounded-md h-10   border border-gray-500 ">
                   <input
+                    value={user.name}
+                    onChange={(e) => setUser((prev)=> ({...prev,name: e.target.value}))}
                     className="w-full bg-transparent p-2 h-full"
                     type="text"
                     placeholder="First Name"
@@ -92,6 +106,8 @@ const ContactMe = forwardRef<HTMLDivElement>((__, ref) => {
                 </div>
                 <div className="w-[48%]  rounded-md h-10   border border-gray-500 ">
                   <input
+                    value={user.email}
+                    onChange={(e)=> setUser((prev)=>({...prev, email:e.target.value}))}
                     className="w-full bg-transparent p-2 h-full"
                     type="email"
                     placeholder="Email Address"
@@ -101,6 +117,8 @@ const ContactMe = forwardRef<HTMLDivElement>((__, ref) => {
                 </div>
                 <div className=" w-full   rounded-md h-10   border border-gray-500">
                   <input
+                    value={user.subject}
+                    onChange={(e)=> setUser((prev)=>({...prev,subject:e.target.value}))}
                     className="w-full bg-transparent p-2 h-full"
                     type="text"
                     placeholder="Subject"
@@ -110,6 +128,8 @@ const ContactMe = forwardRef<HTMLDivElement>((__, ref) => {
                 </div>
                 <div className="w-full   rounded-md h-44   border border-gray-500">
                   <textarea
+                    value={user.message}
+                    onChange={(e)=>setUser((prev)=>({...prev,message:e.target.value}))}
                     className="w-full bg-transparent p-2  h-full"
                     placeholder="Message"
                     name="user_message"
@@ -158,7 +178,7 @@ const ContactMe = forwardRef<HTMLDivElement>((__, ref) => {
         <div ref={socialsRef} className=" hidden absolute z-40 text-black w-screen mt-2 lg:w-60 bottom-20 -left-60 lg:flex items-end text-sm">
           <div className="w-2/4">
             <p>Does not send Emails</p>
-            <p className="font-bold">Write me on my social network</p>
+            <p className="font-bold">Write me on my social networks</p>
           </div>
           <div className="flex gap-2 text-white">
             <a href="https://wa.me/923449179576" target="_blank"><button className="p-1 bg-black text-2xl"><FaWhatsappSquare /></button></a>
@@ -174,7 +194,7 @@ const ContactMe = forwardRef<HTMLDivElement>((__, ref) => {
           <div>
             <p className="text-gray-400">Does not send Emails</p>
             <p className="font-bold text-gray-300">
-              Write me on my social network
+              Write me on my social networks
             </p>
           </div>
           <div className="flex gap-2 text-white">
