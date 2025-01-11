@@ -47,14 +47,14 @@ const Projects = forwardRef<HTMLDivElement>((__, ref) => {
         </h1>
 
         <div ref={containerRef} className="flex flex-wrap gap-10 justify-center items-center  border-solid ">
-          <a href="https://food-panda-mini-hackaton-d2k5n54vi-tariq-syeds-projects.vercel.app/" target="_blank">
+          <a href="https://foodapp-mini-hackaton.vercel.app/" target="_blank">
               <div className="card h-[490px] hover:bg-slate-200 rounded-sm  p-4  pb-10 w-72 ">
                 <div>
                   <img className="h-48" src="/projects/FoodPanda.png" alt="" />
                 </div>
-                <h1 className="mb-2 mt-3 font-bold text-xl">Food Panda App</h1>
+                <h1 className="mb-2 mt-3 font-bold text-xl">FoodApp</h1>
                 <div className="font-bold text-gray-500">
-                  This project is a mini hackathon submission for a FoodPanda-themed
+                  This project is a mini hackathon submission for a Food delivery
                   web application. It is a simple, responsive web app designed to
                   display a menu and interact with Firebase for data storage and
                   retrieval.
