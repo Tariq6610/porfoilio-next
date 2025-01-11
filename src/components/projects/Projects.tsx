@@ -50,7 +50,7 @@ const Projects = forwardRef<HTMLDivElement>((__, ref) => {
           <a href="https://foodapp-mini-hackaton.vercel.app/" target="_blank">
               <div className="card h-[490px] hover:bg-slate-200 rounded-sm  p-4  pb-10 w-72 ">
                 <div>
-                  <img className="h-48" src="/projects/FoodApp.png" alt="" />
+                  <img className="h-48" src="/projects/foodApp.png" alt="" />
                 </div>
                 <h1 className="mb-2 mt-3 font-bold text-xl">FoodApp</h1>
                 <div className="font-bold text-gray-500">
