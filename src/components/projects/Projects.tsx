@@ -46,11 +46,11 @@ const Projects = forwardRef<HTMLDivElement>((__, ref) => {
           </span>
         </h1>
 
-        <div ref={containerRef} className="flex flex-wrap gap-10 justify-center items-center  border-solid ">
+        <div ref={containerRef} className="flex w-full md:flex-wrap overflow-x-scroll md:overflow-hidden md:gap-10 gap-5 md:justify-center items-center border-solid ">
           <a href="https://foodapp-mini-hackaton.vercel.app/" target="_blank">
               <div className="card h-[490px] hover:bg-slate-200 rounded-sm  p-4  pb-10 w-72 ">
                 <div>
-                  <img className="h-48" src="/projects/FoodPanda.png" alt="" />
+                  <img className="h-48" src="/projects/FoodApp.png" alt="" />
                 </div>
                 <h1 className="mb-2 mt-3 font-bold text-xl">FoodApp</h1>
                 <div className="font-bold text-gray-500">
