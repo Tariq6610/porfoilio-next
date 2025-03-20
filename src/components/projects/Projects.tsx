@@ -47,6 +47,18 @@ const Projects = forwardRef<HTMLDivElement>((__, ref) => {
         </h1>
 
         <div ref={containerRef} className="flex w-full md:flex-wrap overflow-x-scroll md:overflow-hidden md:gap-10 gap-5 md:justify-center items-center border-solid ">
+          <a href="https://hackathone-3-project-oyfd7frf3-tariq-syeds-projects.vercel.app/" target="_blank">
+              <div className="card h-[490px] hover:bg-slate-200 rounded-sm  p-4  pb-10 w-72 ">
+                <div>
+                  <img className="h-48 object-cover object-right" src="/projects/Shop.co.png" alt="" />
+                </div>
+                <h1 className="mb-2 mt-3 font-bold text-xl">Shop.Co</h1>
+                <div className="font-bold text-gray-500">
+                This is my hackathon project, where I built an e-commerce website using Next.js, Tailwind CSS, and Sanity CMS. Users can search for products, apply filters, and add items to their cart.
+                </div>
+              </div>
+          </a>
+          
           <a href="https://foodapp-mini-hackaton.vercel.app/" target="_blank">
               <div className="card h-[490px] hover:bg-slate-200 rounded-sm  p-4  pb-10 w-72 ">
                 <div>
@@ -157,14 +169,26 @@ const Projects = forwardRef<HTMLDivElement>((__, ref) => {
               </div>
           </a>
 
-          <a href="https://tariq6610.github.io/Ramzan_countDown/" target="_blank">
+          <a href="https://tariqpersonallibrarymanager.streamlit.app/" target="_blank">
               <div className="card p-4 rounded-sm card h-[490px] hover:bg-slate-200 pb-10 w-72 ">
                 <div>
-                  <img className="h-48" src="/projects/Ramadan.png" alt="" />
+                  <img className="h-48 object-cover object-center" src="/projects/library-manager.png" alt="" />
                 </div>
-                <h1 className="mb-2 mt-3 font-bold text-xl">Ramadan Countdown App</h1>
+                <h1 className="mb-2 mt-3 font-bold text-xl">Personal Library Manager</h1>
                 <div className="font-bold text-gray-500">
-                The Ramadan Countdown App provides users with an accurate countdown to the next Ramadan, displaying the exact number of days, hours, minutes, and seconds remaining.
+                This is a Personal Library Manager app built using Python, Streamlit, and Pandas. It helps book lovers easily organize, track, and manage their reading collections.
+                </div>
+              </div>
+          </a>
+
+          <a href="https://tariq-password-generator-and-checker-0.streamlit.app/" target="_blank">
+              <div className="card p-4 rounded-sm card h-[490px] hover:bg-slate-200 pb-10 w-72 ">
+                <div>
+                  <img className="h-48 object-cover object-center" src="/projects/password-meter.png" alt="" />
+                </div>
+                <h1 className="mb-2 mt-3 font-bold text-xl">Password Meter</h1>
+                <div className="font-bold text-gray-500">
+                This is a Password Meter app that allows users to create passwords and check their strength. It evaluates whether a password is strong or weak and provides suggestions for improvement. The app is built using Python, Streamlit, and Pandas.
                 </div>
               </div>
           </a>

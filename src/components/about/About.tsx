@@ -71,7 +71,7 @@ const About = forwardRef<HTMLDivElement, AboutProp>(({scrollToContact}, ref) => 
             <span></span>
             I M an enthusiastic <span className="font-bold">web developer</span>. A detail-oriented and innovative programmer. Passionate about solving complex problems and creating efficient, scalable code for {/*both*/} <span className="font-bold">front-end</span>{/*and back-end*/} systems. Seeking an opportunity to contribute to a dynamic development team and utilize my expertise
           </p>
-          <div className={`skills font-lucida relative md:left-[3rem] w-fit text-xl mt-6`}><span className="text-xl font-bold italic">My skills are : </span><div className={"badge"}>HTML</div> <div className={"badge"}>CSS</div><div className={"badge"}>Bootsratp</div> <div className={"badge"}>Tailwind</div> <div className={"badge"}>JavaScript</div> <div className={"badge"}>TypeScript</div> <div className={"badge"}>React.Js</div> <div className={"badge"}>Next.js</div> <div className={"badge"}>Firebase</div>
+          <div className={`skills font-lucida relative md:left-[3rem] w-fit text-xl mt-6`}><span className="text-xl font-bold italic">My skills are : </span><div className={"badge"}>HTML, CSS, Js</div> <div className={"badge"}>Bootsratp</div> <div className={"badge"}>Tailwind</div> <div className={"badge"}>TypeScript</div> <div className={"badge"}>React.Js</div> <div className={"badge"}>Next.js</div> <div className={"badge"}>Firebase</div> <div className={"badge"}>Sanity</div> <div className={"badge"}>Node.js</div>
           </div>
           <button onClick={scrollToContact} className="px-3 py-2 bg-black hover:bg-orange-500  text-white hover: rounded ms-14 mt-6">Contact Me</button>
            </div>
