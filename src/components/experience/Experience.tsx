@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
-import { FiBriefcase, FiCalendar, FiMapPin, FiCheckCircle } from "react-icons/fi";
+import { FiBriefcase, FiMapPin, FiCheckCircle } from "react-icons/fi";
 import WaveCanvas from "../shared/WaveCanvas";
 
 gsap.registerPlugin(ScrollTrigger);

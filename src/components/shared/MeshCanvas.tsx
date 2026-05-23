@@ -128,7 +128,7 @@ export default function MeshCanvas() {
       linewidth: 1,
     });
 
-    let lineSegments = new THREE.LineSegments(new THREE.BufferGeometry(), lineMaterial);
+    let lineSegments: THREE.LineSegments<THREE.BufferGeometry, THREE.Material> = new THREE.LineSegments(new THREE.BufferGeometry(), lineMaterial);
     scene.add(lineSegments);
 
     // 5. Interaction Setup

@@ -114,10 +114,13 @@ const Projects = forwardRef<HTMLDivElement>((__, ref) => {
       ref={ref}
       className="py-14 md:py-20 w-full flex flex-col justify-center items-center bg-white dark:bg-zinc-900 border-b border-zinc-200/50 dark:border-zinc-800/40 relative overflow-hidden transition-colors duration-300"
     >
+      {/* Three.js Flow Canvas effect */}
+      <FlowCanvas />
+
       {/* Visual background accents */}
       <div className="absolute bottom-1/4 right-10 w-96 h-96 rounded-full bg-amber-400/5 dark:bg-amber-400/3 blur-[120px] pointer-events-none -z-10" />
 
-      <div className="container mx-auto px-6 md:px-12">
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
         <h2 className={`${mulish} text-clamp-lg text-center mb-10 tracking-tight text-zinc-950 dark:text-white font-extrabold`}>
           Proje
           <span className="bg-gradient-to-r from-amber-400 via-rose-400 to-amber-500 bg-clip-text text-transparent">

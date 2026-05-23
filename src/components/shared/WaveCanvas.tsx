@@ -107,7 +107,6 @@ export default function WaveCanvas() {
     scene.add(gridPoints);
 
     // 5. Interactivity & Mouse Easing
-    const mouse = new THREE.Vector2(-999, -999);
     let targetMouseX = 0;
     let targetMouseY = 0;
     let mouseX = 0;

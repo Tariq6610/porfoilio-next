@@ -185,7 +185,7 @@ export default function ContactCanvas() {
 
         // Wave sway horizontally
         orb.baseX += Math.sin(elapsedTime * 0.5 + orb.swayOffset) * 0.002;
-        let targetX = orb.baseX + Math.sin(elapsedTime + orb.swayOffset) * orb.swayAmp;
+        const targetX = orb.baseX + Math.sin(elapsedTime + orb.swayOffset) * orb.swayAmp;
 
         // Mouse repelling force
         if (mouse.x !== -999) {
