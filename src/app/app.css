@@ -1,31 +1,39 @@
-.paragraph ::before{
-    content: "";
-    background-color: black;
-    width: 30px;
-    height: 2px;
-    position: absolute;
-    left: -2.75rem;
-    top: 0.8rem;
-}
-
-
-.skills ::before{
+.paragraph::before {
   content: "";
-  background-color: black;
+  background-color: currentColor;
+  opacity: 0.7;
   width: 30px;
   height: 2px;
   position: absolute;
   left: -2.75rem;
-  top: 1.4rem;
+  top: 0.85rem;
 }
 
-.badge{
+.skills::before {
+  content: "";
+  background-color: currentColor;
+  opacity: 0.7;
+  width: 30px;
+  height: 2px;
+  position: absolute;
+  left: -2.75rem;
+  top: 1.45rem;
+}
+
+.badge {
   display: inline-block;
-  padding: 5px 11px;
-  background: -webkit-linear-gradient(to right, #fac37b, transparent);
-  background: -moz-linear-gradient(to right, #fac37b, transparent);
-  background: -o-linear-gradient(to right, #fac37b, transparent);
-  background: linear-gradient(to right, #fac37b, transparent);   
+  padding: 5px 14px;
+  background: linear-gradient(135deg, rgba(250, 195, 123, 0.2), rgba(250, 195, 123, 0.05));
+  border: 1px solid rgba(250, 195, 123, 0.3);
   border-radius: 40px;
   margin: 5px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
+
+.badge:hover {
+  border-color: rgba(250, 195, 123, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(250, 195, 123, 0.15);
+}
